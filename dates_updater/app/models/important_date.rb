@@ -4,13 +4,29 @@ class ImportantDate < ActiveRecord::Base
 
   accepts_nested_attributes_for :link, :allow_destroy => true
 
+  validates_presence_of :description, :start_date
+
+  before_save :check_end_date
+
   def as_json(options={})
     {
       :description  => self.description,
-      :startDate    => self.start_date,
-      :endDate      => self.end_date,
-      :tags         => self.tags,
-      :link         => self.link
+      :start_date    => self.start_date,
+      :end_date      => self.end_date,
+      :link         => self.link,
+      :tags         => self.tags
+
     }
   end
+
+  protected
+
+  def check_end_date
+    if self.end_date.nil?
+      self.end_date = self.start_date
+    end
+
+  end
+
+
 end
