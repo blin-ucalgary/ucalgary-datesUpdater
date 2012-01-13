@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120112224835) do
+ActiveRecord::Schema.define(:version => 20120113000318) do
 
   create_table "important_dates", :force => true do |t|
     t.text     "description"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120112224835) do
     t.datetime "updated_at"
   end
 
-  create_table "important_dates_tags", :id => false, :force => true do |t|
+  create_table "important_dates_tags", :force => true do |t|
     t.integer "important_date_id"
     t.integer "tag_id"
   end
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120112224835) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "important_date_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
