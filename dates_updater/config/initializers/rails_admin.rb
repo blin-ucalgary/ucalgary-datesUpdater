@@ -95,6 +95,16 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
+  #
+
+  config.model Tag do
+    parent ImportantDate
+  end
+
+  config.model Link do
+    parent ImportantDate
+  end
+
   # config.model Link do
   #   # Found associations:
   #   # Found columns:
