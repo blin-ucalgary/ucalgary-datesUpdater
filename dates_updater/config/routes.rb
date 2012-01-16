@@ -3,6 +3,7 @@ DatesUpdater::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  match 'dates.json' => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
